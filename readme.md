@@ -1,22 +1,81 @@
-# pxlnova
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proxy-generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
 
-a simple, static web proxy based off of TIW and UV to safely search on the internet
+    <h1>Click the Button to Get a Random Link!</h1>
+    
+    <button onclick="generateRandomLink()">Get Random Link</button>
 
-## proxy generator link 
+    <a id="random-link" href="#" target="_blank" style="display:none;">Click Here to Visit the pxlnova link</a>
 
-github...(https://github.com/cipherkingsyn/proxy-generator/tree/main)
+    <script>
+        function generateRandomLink() {
+            const links = [
+                "https://pxlnova-b8z.pages.dev",
+                "https://pxlnova11.pages.dev",
+                "https://pxlnova4-emp.pages.dev",
+                "https://pxlnovaea2.pages.dev",
+                "https://canvas-90c.pages.dev",
+                "https://i-know-were-you-live.pages.dev",
+                "https://clever1.pages.dev",
+                "https://pxlnovae.pages.dev",
+                "https://skibdi.pages.dev",
+                "https://pxlnova3.pages.dev",
+                "https://pxlnova4.pages.dev/",
+                "https://pxlnova2.pages.dev/",
+                "https://pxlnova-keb.pages.dev/",
+                "https://stitch-is-in-this-website.pages.dev/",
+                "https://pxlnova223.pages.dev/",
+                "https://pxlnova-biggychees.pages.dev/",
+                "https://pxlnova22.pages.dev/",
+                "https://ding-dong-eat-em-up.pages.dev/",
+                "https://new-algebra.pages.dev/",
+                "https://pxlnova2-lll.pages.dev/",
+                "https://teacher-dont-giv-me-detention.pages.dev/",
+                "https://youlikefart.pages.dev/",
+                "https://vaderhopethisworks.pages.dev/",
+                "https://pxlnova-6.pages.dev/",
+                "https://pxlnova-8.pages.dev/",
+                "https://pxlnova-3.pages.dev/"
+            ];
 
-website...(https://generatorr.pages.dev)
+            const randomLink = links[Math.floor(Math.random() * links.length)];
 
-### deploy
+        
+            const linkElement = document.getElementById("random-link");
+            linkElement.href = randomLink;
+            linkElement.style.display = "block";
+            linkElement.textContent = `Click Here to Visit: ${randomLink}`;
+        }
+    </script>
 
-since this web proxy is completely static, its pretty easy to deploy, or just click a button below <br>
-[![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/szvy/anony) 
-[![Run on Replit](https://binbashbanana.github.io/deploy-buttons/buttons/remade/replit.svg)](https://replit.com/github/szvy/anony)
-[![Deploy to Vercel](https://binbashbanana.github.io/deploy-buttons/buttons/remade/vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/szvy/anony)
-[![Deploy to Netlify](https://binbashbanana.github.io/deploy-buttons/buttons/remade/netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/szvy/anony)
-[![Deploy to Render](https://binbashbanana.github.io/deploy-buttons/buttons/remade/render.svg)](https://render.com/deploy?repo=https://github.com/szvy/anony)
-[![Deploy to Koyeb](https://binbashbanana.github.io/deploy-buttons/buttons/remade/koyeb.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/szvy/anony&branch=main&name=anony)
+</body>
+</html>
 
 #### credits
 
