@@ -2,7 +2,13 @@
 
 a simple, static web proxy based off of TIW and UV to safely search on the internet
 
-## deploy
+## proxy generator link 
+
+github...(https://github.com/cipherkingsyn/proxy-generator/tree/main)
+
+website...(https://generatorr.pages.dev)
+
+### deploy
 
 since this web proxy is completely static, its pretty easy to deploy, or just click a button below <br>
 [![Remix on Glitch](https://binbashbanana.github.io/deploy-buttons/buttons/remade/glitch.svg)](https://glitch.com/edit/#!/import/github/szvy/anony) 
@@ -12,7 +18,7 @@ since this web proxy is completely static, its pretty easy to deploy, or just cl
 [![Deploy to Render](https://binbashbanana.github.io/deploy-buttons/buttons/remade/render.svg)](https://render.com/deploy?repo=https://github.com/szvy/anony)
 [![Deploy to Koyeb](https://binbashbanana.github.io/deploy-buttons/buttons/remade/koyeb.svg)](https://app.koyeb.com/deploy?type=git&repository=github.com/szvy/anony&branch=main&name=anony)
 
-## credits
+#### credits
 
 * [szvy - original search files from her](https://github.com/szvy)
 * [TIW - original code came from them](https://github.com/KwazyMotoo/TIW-Static)
