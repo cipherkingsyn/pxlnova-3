@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -8,92 +8,104 @@
     <link rel="stylesheet" href="/assets/styles.css">
     <link rel="icon" href="/assets/w.png" type="image/x-icon">
     <style>
-     
-      #redirectButton {
-        background-color: #6a1b9a; 
-        color: white; 
-        padding: 15px 30px; 
-        font-size: 18px; 
-        border: none; 
-        border-radius: 8px; 
-        cursor: pointer; 
-        transition: background-color 0.3s ease; 
-      }
+        /* Styling for the redirect button */
+        #redirectButton {
+            background-color: #6a1b9a; 
+            color: white; 
+            padding: 15px 30px; 
+            font-size: 18px; 
+            border: none; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: background-color 0.3s ease; 
+        }
 
-    
-      #redirectButton:hover {
-        background-color: #9c4dcc; 
-      }
+        #redirectButton:hover {
+            background-color: #9c4dcc; 
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <main class="main-container">
-      <header>
-        <img src="/assets/w.png" alt="pxlnova" class="logo">
-        <h1>pxlnova!</h1>
-        <p class="subtext">a modern web search engine!</p>
-      </header>
-      <button id="startButton" onclick="window.location.href = '/web/index.html'">Start Browsing</button>
-     
-      <button id="games" onclick="window.location.href = '/web/games.html'">apps</button>
+        <header>
+            <img src="/assets/w.png" alt="pxlnova" class="logo">
+            <h1>pxlnova!</h1>
+            <p class="subtext">A modern web search engine!</p>
+        </header>
+
+        <!-- Start Browsing Button -->
+        <button id="startButton" aria-label="Start Browsing">Start Browsing</button>
+
+        <!-- Redirect to Games page button -->
+        <button id="redirectButton" aria-label="Go to Apps Page">Apps</button>
     </main>
 
     <script>
-  
-      function detectInjectedScripts() {
-        const scripts = document.getElementsByTagName('script');
-        for (let i = 0; i < scripts.length; i++) {
-          const scriptSrc = scripts[i].src;
-          if (scriptSrc && !scriptSrc.includes(window.location.hostname)) {
-            console.warn('Injected script detected:', scriptSrc);
-            alert('A browser extension tried to inject a script!');
-            scripts[i].remove();  
-          }
-        }
-      }
-
-     
-      function preventRedirects() {
-        const originalPushState = history.pushState;
-        history.pushState = function(state, title, url) {
-          console.log("Redirect attempt blocked:", url);
-          alert("Redirects are blocked on this page!");
-          return originalPushState.apply(history, arguments);
-        };
-
-        const originalReplaceState = history.replaceState;
-        history.replaceState = function(state, title, url) {
-          console.log("Redirect attempt blocked:", url);
-          alert("Redirects are blocked on this page!");
-          return originalReplaceState.apply(history, arguments);
-        };
-
-  
-        const originalReload = location.reload;
-        location.reload = function() {
-          console.log("Page reload attempt blocked.");
-          alert("Page reloads are blocked!");
-        };
-      }
-
-     
-      function blockLocationChange() {
-        Object.defineProperty(window, 'location', {
-          configurable: false,
-          enumerable: true,
-          writable: false,
-          value: window.location
+        // Improved event listener for the 'Start Browsing' button
+        document.getElementById('startButton').addEventListener('click', function() {
+            window.location.href = '/web/index.html';
         });
-      }
 
-      window.onload = function() {
-       
-        setInterval(detectInjectedScripts, 1000); 
-        preventRedirects();
-        blockLocationChange();
-      };
+        // Improved event listener for the 'Apps' button
+        document.getElementById('redirectButton').addEventListener('click', function() {
+            window.location.href = '/games.html';
+        });
 
+        // Function to detect injected scripts
+        function detectInjectedScripts() {
+            const scripts = document.getElementsByTagName('script');
+            for (let i = 0; i < scripts.length; i++) {
+                const scriptSrc = scripts[i].src;
+                if (scriptSrc && !scriptSrc.includes(window.location.hostname)) {
+                    console.warn('Injected script detected:', scriptSrc);
+                    alert('A browser extension tried to inject a script!');
+                    scripts[i].remove();  
+                }
+            }
+        }
+
+        // Function to prevent redirects using pushState and replaceState
+        function preventRedirects() {
+            const originalPushState = history.pushState;
+            history.pushState = function(state, title, url) {
+                console.log("Redirect attempt blocked:", url);
+                alert("Redirects are blocked on this page!");
+                return originalPushState.apply(history, arguments);
+            };
+
+            const originalReplaceState = history.replaceState;
+            history.replaceState = function(state, title, url) {
+                console.log("Redirect attempt blocked:", url);
+                alert("Redirects are blocked on this page!");
+                return originalReplaceState.apply(history, arguments);
+            };
+
+            const originalReload = location.reload;
+            location.reload = function() {
+                console.log("Page reload attempt blocked.");
+                alert("Page reloads are blocked!");
+            };
+        }
+
+        // Function to block changes to the window.location object
+        function blockLocationChange() {
+            Object.defineProperty(window, 'location', {
+                configurable: false,
+                enumerable: true,
+                writable: false,
+                value: window.location
+            });
+        }
+
+        // Run the functions on page load
+        window.onload = function() {
+            setInterval(detectInjectedScripts, 1000); // Check for injected scripts every second
+            preventRedirects(); // Prevent redirects
+            blockLocationChange(); // Block location change
+        };
     </script>
+
+    <!-- Include external JS file (ensure 'index.js' is correct and exists) -->
     <script src="index.js"></script>
-  </body>
+</body>
 </html>
