@@ -1,247 +1,79 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pxlnova Apps - Fun Games</title>
+    <title>pxnova-apps</title>
     <style>
-        /* General body styles */
-        body {
-            font-family: 'Arial', sans-serif;
+        html, body {
+            height: 100%; /* Make sure the body and html take the full height */
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
-            transition: background-color 0.5s ease;
         }
-
-        /* Header section with animation */
-        header {
-            background-color: #1d1d1d;
-            color: #fff;
-            text-align: center;
-            padding: 40px 20px;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            letter-spacing: 3px;
-            animation: slideIn 1s ease-out;
-        }
-
-        header p {
-            font-size: 1.2em;
-            animation: fadeInUp 2s ease-in-out;
-        }
-
-        /* Navigation Bar with hover animations */
-        nav {
-            background-color: #222;
-            padding: 15px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            transition: background-color 0.3s;
-        }
-
-        nav a {
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.discordapp.com/attachments/1241866909834809474/1310355132021608568/Screenshot_2024-11-11_072423.png?ex=6744ead0&is=67439950&hm=71403345fe0a8f236a08bda58ba7ad19a242381b7660a3c854c4379361f24ade');
+            background-size: cover; /* Ensures the background image covers the entire page */
+            background-position: center;
+            background-repeat: no-repeat;
             color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 16px;
-            text-transform: uppercase;
-            position: relative;
-            transition: color 0.3s ease, transform 0.3s ease;
+            text-align: center;
         }
-
-        nav a:hover {
-            color: #ffb400;
-            transform: scale(1.1);
+        h1 {
+            margin-top: 50px;
+            font-size: 3em;
+            text-shadow: 0 0 15px #8a69f4, 0 0 30px #8a69f4, 0 0 45px #8a69f4;
         }
-
-        /* Content container */
         .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            animation: fadeInUp 2s ease-in-out;
+            background-color: rgba(0, 0, 0, 0.7); /* Black background with some transparency */
+            border-radius: 15px;
+            padding: 30px;
+            width: 70%;
+            margin: 0 auto;
+            margin-top: 100px;
         }
-
-        /* Game description section with animation */
-        .game-description {
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeInUp 2s forwards;
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        .game-description h2 {
-            font-size: 2em;
-            color: #1d1d1d;
-            animation: slideIn 1s ease-out;
-        }
-
-        .game-description p {
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-
-        /* Embedded Game iframe */
-        .game-iframe {
-            width: 100%;
-            height: 600px;
+        button {
+            background-color: #6a4e9f; /* Dark purple */
             border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            animation: zoomIn 1s ease-out;
-        }
-
-        /* Animation for game list */
-        .game-list {
-            margin-top: 30px;
-            opacity: 0;
-            animation: fadeInUp 2s forwards;
-        }
-
-        .game-list ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .game-list ul li {
-            margin: 15px 0;
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        .game-list ul li:hover {
-            transform: translateX(10px);
-            color: #ffb400;
-        }
-
-        .game-list a {
-            text-decoration: none;
-            color: #333;
-            font-size: 18px;
-            display: inline-block;
-            transition: color 0.3s ease;
-        }
-
-        .game-list a:hover {
-            color: #ffb400;
-        }
-
-        /* Start Button Styling */
-        #startButton {
-            background-color: #1d1d1d;
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        #startButton:hover {
-            background-color: #ffb400;
-        }
-
-        /* Footer styling */
-        footer {
-            background-color: #1d1d1d;
             color: white;
-            text-align: center;
-            padding: 15px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-            font-size: 1em;
-            opacity: 0;
-            animation: fadeInUp 2s forwards;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            margin: 15px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         }
-
-        /* Keyframe Animations */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        button:hover {
+            background-color: #7b5fbd; /* Lighter purple */
+            box-shadow: 0 4px 15px rgba(123, 95, 189, 0.7);
+            transform: translateY(-2px);
         }
-
-        @keyframes slideIn {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
+        button:active {
+            transform: translateY(2px);
         }
-
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        button:focus {
+            outline: none;
         }
-
-        @keyframes zoomIn {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .game-iframe {
-                height: 400px;
-            }
-
-            header h1 {
-                font-size: 2em;
-            }
-
-            nav a {
-                font-size: 14px;
-                margin: 0 10px;
-            }
-
-            .container {
-                padding: 15px;
-            }
+        .glow {
+            text-shadow: 0 0 15px #8a69f4, 0 0 30px #8a69f4, 0 0 45px #8a69f4;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <h1>Pxlnova Apps</h1>
-    <p>Apps to use in school!</p>
-</header>
-
-<nav>
-    <a href="#">Games/Apps</a>
-</nav>
-
-<div class="container">
-    <!-- Game Description Section -->
-    <div class="game-description">
-        <h2>Featured Game: Roblox</h2>
-        <p>Roblox is an incredibly popular online gaming platform that allows users to create, share, and play games created by other users. Launched in 2006, Roblox has become one of the most widely used platforms for both players and developers. It provides a unique experience by combining gaming with creativity, enabling players to design their own games or explore millions of user-created worlds.</p>
+    <h1 class="glow">pxnova-apps</h1>
+    <div class="container">
+        <div class="button-container">
+            <button id="startButton" onclick="window.location.href = '/s.html'">Bitlife</button>
+            <button id="startButton" onclick="window.location.href = '/sub.html'">Subway Surfers</button>
+            <button id="startButton" onclick="window.location.href = '/mine.html'">Minecraft</button>
+            <button id="startButton" onclick="window.location.href = '/index.html'">Home</button>
+        </div>
     </div>
-
-    <!-- Embed Game (iframe) -->
-    <iframe src="https://skibiditoilet.yourmom.eu.org/" class="game-iframe" title="Roblox"></iframe>
-     <button id="startButton" onclick="window.location.href = '/s.html'">bitlife</button>
-     <button id="startButton" onclick="window.location.href = '/sub.html'">subway surfers</button>
-     <button id="startButton" onclick="window.location.href = '/mine.html'">mincraft</button>
-     <button id="startButton" onclick="window.location.href = '/index.html'">home</button>
-
-    <!-- Game List Section -->
-    <div class="game-list">
-        <h3>Other apps/games:</h3> 
-
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2024 Pxlnova Apps - All rights reserved.</p>
-</footer>
-
 </body>
 </html>
