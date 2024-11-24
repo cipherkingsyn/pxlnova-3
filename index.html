@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="/assets/styles.css">
     <link rel="icon" href="/assets/w.png" type="image/x-icon">
     <style>
-        /* Styling for the redirect button */
-        #redirectButton {
+        #redirectButton, #aiButton {
             background-color: #6a1b9a; 
             color: white; 
             padding: 15px 30px; 
@@ -18,9 +17,10 @@
             border-radius: 8px; 
             cursor: pointer; 
             transition: background-color 0.3s ease; 
+            margin: 10px 0;
         }
 
-        #redirectButton:hover {
+        #redirectButton:hover, #aiButton:hover {
             background-color: #9c4dcc; 
         }
     </style>
@@ -33,25 +33,24 @@
             <p class="subtext">A modern web search engine!</p>
         </header>
 
-        <!-- Start Browsing Button -->
         <button id="startButton" aria-label="Start Browsing">Start Browsing</button>
-
-        <!-- Redirect to Games page button -->
         <button id="redirectButton" aria-label="Go to Apps Page">Apps</button>
+        <button id="aiButton" aria-label="Go to AI Page">AI</button>
     </main>
 
     <script>
-        // Improved event listener for the 'Start Browsing' button
         document.getElementById('startButton').addEventListener('click', function() {
             window.location.href = '/web/index.html';
         });
 
-        // Improved event listener for the 'Apps' button
         document.getElementById('redirectButton').addEventListener('click', function() {
             window.location.href = '/games.html';
         });
 
-        // Function to detect injected scripts
+        document.getElementById('aiButton').addEventListener('click', function() {
+            window.location.href = '/pxlnova.html';
+        });
+
         function detectInjectedScripts() {
             const scripts = document.getElementsByTagName('script');
             for (let i = 0; i < scripts.length; i++) {
@@ -64,7 +63,6 @@
             }
         }
 
-        // Function to prevent redirects using pushState and replaceState
         function preventRedirects() {
             const originalPushState = history.pushState;
             history.pushState = function(state, title, url) {
@@ -87,7 +85,6 @@
             };
         }
 
-        // Function to block changes to the window.location object
         function blockLocationChange() {
             Object.defineProperty(window, 'location', {
                 configurable: false,
@@ -97,15 +94,13 @@
             });
         }
 
-        // Run the functions on page load
         window.onload = function() {
-            setInterval(detectInjectedScripts, 1000); // Check for injected scripts every second
-            preventRedirects(); // Prevent redirects
-            blockLocationChange(); // Block location change
+            setInterval(detectInjectedScripts, 1000);
+            preventRedirects();
+            blockLocationChange();
         };
     </script>
 
-    <!-- Include external JS file (ensure 'index.js' is correct and exists) -->
     <script src="index.js"></script>
 </body>
 </html>
