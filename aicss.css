@@ -1,0 +1,128 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://cdn.discordapp.com/attachments/1303113508937928824/1310262861276254309/Screenshot_2024-11-11_072423.png?ex=674494e1&is=67434361&hm=a52d4038dd69c71e56f6ae048c7aeba3f97950008b7be796cbda16d51ca09006&') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.roddyrichhesbox {
+    background: rgba(50, 50, 50, 0.85);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    width: 100%;  
+    max-width: 900px;  
+    min-width: 350px;
+    position: relative;
+    margin: 0 auto; 
+}
+
+h1 {
+    font-size: 3rem;
+    color: #7400fe;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+#chat-container {
+    background: #1c1c1c;
+    border-radius: 15px;
+    height: 400px;
+    margin-bottom: 20px;
+    padding: 15px;
+    overflow-y: auto;
+    font-size: 1.1rem;
+    color: #f5f5f5;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border: 2px solid #333;
+}
+
+#chat-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+#chat-container::-webkit-scrollbar-thumb {
+    background: #ff00dd;
+    border-radius: 10px;
+}
+
+#chat-container::-webkit-scrollbar-thumb:hover {
+    background: #ff0099;
+}
+
+#user-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #2c2c2c;
+    border: 2px solid #333;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    resize: none;
+    transition: 0.3s ease;
+    box-sizing: border-box; 
+}
+
+#user-input:focus {
+    outline: none;
+    border-color: #7400fe;
+    box-shadow: 0 4px 15px rgba(255, 0, 221, 0.6);
+}
+
+#send-button {
+    width: 100%;
+    padding: 15px;
+    background: #7400fe;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(141, 0, 251);
+    transition: all 0.3s ease;
+}
+
+#send-button:hover {
+    background: #7400fe;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(141, 0, 251);
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    #chat-container {
+        height: 300px;
+    }
+
+    #user-input {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    #send-button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
