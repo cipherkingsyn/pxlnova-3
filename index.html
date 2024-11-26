@@ -7,11 +7,6 @@
     <title>PXLNOVA</title>
     <link rel="stylesheet" href="/assets/styles.css">
     <link rel="icon" href="/assets/w.png" type="image/x-icon">
-    
-    <!-- Google AdSense Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5801610924124039"
-        crossorigin="anonymous"></script>
-    
     <style>
         #redirectButton, #aiButton {
             background-color: #6a1b9a; 
@@ -55,55 +50,6 @@
         document.getElementById('aiButton').addEventListener('click', function() {
             window.location.href = '/pxlnova.html';
         });
-
-        function detectInjectedScripts() {
-            const scripts = document.getElementsByTagName('script');
-            for (let i = 0; i < scripts.length; i++) {
-                const scriptSrc = scripts[i].src;
-                if (scriptSrc && !scriptSrc.includes(window.location.hostname)) {
-                    console.warn('Injected script detected:', scriptSrc);
-                    alert('A browser extension tried to inject a script!');
-                    scripts[i].remove();  
-                }
-            }
-        }
-
-        function preventRedirects() {
-            const originalPushState = history.pushState;
-            history.pushState = function(state, title, url) {
-                console.log("Redirect attempt blocked:", url);
-                alert("Redirects are blocked on this page!");
-                return originalPushState.apply(history, arguments);
-            };
-
-            const originalReplaceState = history.replaceState;
-            history.replaceState = function(state, title, url) {
-                console.log("Redirect attempt blocked:", url);
-                alert("Redirects are blocked on this page!");
-                return originalReplaceState.apply(history, arguments);
-            };
-
-            const originalReload = location.reload;
-            location.reload = function() {
-                console.log("Page reload attempt blocked.");
-                alert("Page reloads are blocked!");
-            };
-        }
-
-        function blockLocationChange() {
-            Object.defineProperty(window, 'location', {
-                configurable: false,
-                enumerable: true,
-                writable: false,
-                value: window.location
-            });
-        }
-
-        window.onload = function() {
-            setInterval(detectInjectedScripts, 1000);
-            preventRedirects();
-            blockLocationChange();
-        };
     </script>
 
     <script src="index.js"></script>
