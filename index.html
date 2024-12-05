@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5801610924124039"
+        crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -23,6 +25,16 @@
         #redirectButton:hover, #aiButton:hover {
             background-color: #9c4dcc; 
         }
+
+        /* Position the settings icon in the top-right corner */
+        #settingsIcon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;  /* Adjust the size of the icon */
+            height: 40px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -36,6 +48,9 @@
         <button id="startButton" aria-label="Start Browsing">Start Browsing</button>
         <button id="redirectButton" aria-label="Go to Apps Page">Apps</button>
         <button id="aiButton" aria-label="Go to AI Page">AI</button>
+
+        <!-- Settings icon in the top-right corner -->
+        <img id="settingsIcon" src="https://cdn.discordapp.com/attachments/1308061405244817448/1314352186196627517/image.png?ex=6753755c&is=675223dc&hm=2dbac9613379f04b6393a74a4d426d839c973e678c07e2c9640559c4d792e266&" alt="Settings Icon">
     </main>
 
     <script>
@@ -49,6 +64,11 @@
 
         document.getElementById('aiButton').addEventListener('click', function() {
             window.location.href = '/pxlnova.html';
+        });
+
+        // Redirect to settings page when the settings icon is clicked
+        document.getElementById('settingsIcon').addEventListener('click', function() {
+            window.location.href = '/setting.html';
         });
     </script>
 
