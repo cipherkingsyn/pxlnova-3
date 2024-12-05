@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>games</title>
+    <link rel="icon" href="/assets/w.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://cdn.discordapp.com/attachments/1240040301960101973/1313974398872457317/Screenshot_2024-11-11_072423.png?ex=67536705&is=67521585&hm=50ade4d81d29ed88edb255d4212b509e356db1ef5bdd4945b993aa8885fc6f1f');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        #container {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(128, 0, 255, 0.7);
+            backdrop-filter: blur(8px);
+            animation: glowAnimation 1.5s ease-in-out infinite alternate;
+            position: relative;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(128, 0, 255, 0.6), 0 0 20px rgba(128, 0, 255, 0.8);
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(128, 0, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5c6bc0;
+            box-shadow: 0 0 20px rgba(128, 0, 255, 1);
+        }
+
+        
+        #backButton {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            background-image: url('https://uxwing.com/wp-content/themes/uxwing/download/computers-mobile-hardware/back-button-icon.png');
+            background-size: cover;
+            background-position: center;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #backButton:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes glowAnimation {
+            0% {
+                text-shadow: 0 0 10px rgba(128, 0, 255, 0.6), 0 0 20px rgba(128, 0, 255, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(128, 0, 255, 1), 0 0 40px rgba(128, 0, 255, 1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        
+        <button id="backButton" onclick="window.history.back();"></button>
+
+        <h1>Game Cheats</h1>
+
+       
+        <button id="blooketButton" onclick="window.location.replace('https://raw.githubusercontent.com/cipherkingsyn/fgdg/refs/heads/main/blooket.js')">Blooket</button>
+        <button id="gimkitButton" onclick="window.location.replace('https://raw.githubusercontent.com/cipherkingsyn/fgdg/refs/heads/main/gimkit.js')">Gimkit</button>
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            alert(`Copied: ${text}`);
+        }
+    </script>
+
+</body>
+</html>
